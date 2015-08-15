@@ -136,8 +136,8 @@ Executing some execution modules:
     # salt 'master1*' grains.get os_family
 
 
-Salt Cloud w/ Linode
-''''''''''''''''''''
+Salt Cloud VM Deployment
+''''''''''''''''''''''''
 
 Prepare the system for Salt Cloud:
 
@@ -171,6 +171,7 @@ Deploy a VM using the profile linode_1024_centos_fra and name it minion1:
 Deploy even more VMs:
 
 ::
+
     # salt-cloud --map /vagrant/shared/misc/salt-cloud/map1.yaml --parallel --hard
     # salt-cloud --map /vagrant/shared/misc/salt-cloud/map1.yaml --parallel --destroy --assume-yes
 
