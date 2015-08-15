@@ -1,4 +1,4 @@
-linode_1024_centos_fra:
+linode_2048_centos_fra:
   - master1:
       make_master: True
   - minion1
@@ -101,7 +101,7 @@ linode_1024_centos_fra:
   #  - minion98
   #  - minion99
   #  - minion100
-  #linode_1024_debian_fra:
+  #linode_2048_debian_fra:
   #  - minion100
   #  - minion101
   #  - minion102
@@ -123,7 +123,7 @@ linode_1024_centos_fra:
   #  - minion118
   #  - minion119
   #  - minion120
-  #linode_1024_opensuse_fra:
+  #linode_2048_opensuse_fra:
   #  - minion121
   #  - minion122
   #  - minion123
@@ -134,7 +134,7 @@ linode_1024_centos_fra:
   #  - minion128
   #  - minion129
   #  - minion130
-  #linode_1024_fedora_fra:
+  #linode_2048_fedora_fra:
   #  - minion131
   #  - minion132
   #  - minion133
@@ -145,7 +145,7 @@ linode_1024_centos_fra:
   #  - minion138
   #  - minion139
   #  - minion140
-  #linode_1024_arch_fra:
+  #linode_2048_arch_fra:
   #- minion141
   #  - minion142
   #  - minion143
