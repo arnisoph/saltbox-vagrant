@@ -173,6 +173,11 @@ Deploy even more VMs:
 ::
 
     # salt-cloud --map /vagrant/shared/misc/salt-cloud/map1.yaml --parallel --hard
+
+Destroy them all:
+
+::
+
     # salt-cloud --map /vagrant/shared/misc/salt-cloud/map1.yaml --parallel --destroy --assume-yes
 
 
