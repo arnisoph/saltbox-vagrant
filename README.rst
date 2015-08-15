@@ -16,6 +16,7 @@ You need:
 
 * basic vagrant knowledge (RFTM skills are sufficient)
 * Vagrant >= 1.6.5 (``$ vagrant -v``)
+* VirtualBox >= 3
 
 
 Workflows
