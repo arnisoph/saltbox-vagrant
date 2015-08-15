@@ -58,3 +58,5 @@ test/.vagrant/
 test/nodes.yaml
 *.box
 nodes.yaml
+
+shared/salt/devenv/master1/file_roots/pillar/private.sls

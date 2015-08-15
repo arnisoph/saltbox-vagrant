@@ -35,7 +35,7 @@ defaults:
     - name: basic
     - name: saltstack_install_bootstrap
       env:
-        params: '-Z,-P,stable'
+        params: '-Z,-P,-M,git,96c4fb61b84db15caa3e99c8730a226681ddb411'
     - name: saltstack_formulas
       formulas:
         - name: saltbox

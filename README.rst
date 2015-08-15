@@ -43,7 +43,7 @@ Check Salt is installed:
 
 ::
 
-    # salt-call --local test.version
+    # salt-call test.version
 
 Check Salt minion/ master configuration:
 
@@ -57,22 +57,22 @@ See list of grains:
 
 ::
 
-    # salt-call --local grains.items
+    # salt-call grains.items
 
 See specific pillar data:
 
 ::
 
-    # salt-call --local pillar.get users
-    # salt-call --local pillar.get users --out=json
+    # salt-call pillar.get users
+    # salt-call pillar.get users --out=json
 
 Read the docs:
 
 ::
 
-    # salt-call --local sys.doc
-    # salt-call --local sys.doc pillar
-    # salt-call --local sys.doc pillar.get
+    # salt-call sys.doc
+    # salt-call sys.doc pillar
+    # salt-call sys.doc pillar.get
 
 
 Simple Apache httpd Management
@@ -82,20 +82,20 @@ Installing Apache httpd, deploying a httpd.conf template and restart the service
 
 ::
 
-    # salt-call --local -l debug state.sls saltbox.simple_apache_httpd test=True
-    # salt-call --local -l debug state.sls saltbox.simple_apache_httpd
+    # salt-call -l debug state.sls saltbox.simple_apache_httpd test=True
+    # salt-call -l debug state.sls saltbox.simple_apache_httpd
     # echo unwantend content >> /etc/httpd/conf/httpd.conf
-    # salt-call --local -l debug state.sls saltbox.simple_apache_httpd
+    # salt-call -l debug state.sls saltbox.simple_apache_httpd
 
 The same as before but now making use of the Salt pillar system
 
 ::
 
     # less /srv/salt/pillar/share/common/init.sls
-    # salt-call --local -l debug pillar.get httpd --out=json
+    # salt-call -l debug pillar.get httpd --out=json
     # diff -u /srv/salt/states/saltbox/simple_apache_httpd/init.sls /srv/salt/states/saltbox/simple_apache_httpd_dynamic/init.sls
     # less /srv/salt/contrib/states/saltbox/files/httpd_dynamic.conf
-    # salt-call --local -l debug state.sls saltbox.simple_apache_httpd_dynamic test=True
+    # salt-call -l debug state.sls saltbox.simple_apache_httpd_dynamic test=True
     # curl -vs http://10.10.13.100/
 
 
@@ -136,6 +136,45 @@ Executing some execution modules:
     # salt 'master1*' grains.get os_family
 
 
+Salt Cloud w/ Linode
+''''''''''''''''''''
+
+Prepare the system for Salt Cloud:
+
+::
+
+    # Required states:
+    # salt-call -ldebug state.sls salt.cloud,repos,git,tools
+
+    # With optional states:
+    # salt-call -ldebug state.sls salt.cloud,repos,git,tools,zsh,users,vim
+
+
+List available DC locations of the provider defined in provider config linode01:
+
+::
+
+    # salt-cloud --list-locations=linode01
+
+List available VM images of the provider defined in provider config linode01:
+
+::
+
+    # salt-cloud --list-images=linode01
+
+Deploy a VM using the profile linode_1024_centos_fra and name it minion1:
+
+::
+
+    # salt-cloud -l debug -p linode_1024_centos_fra minion1
+
+Deploy even more VMs:
+
+::
+    # salt-cloud --map /vagrant/shared/misc/salt-cloud/map1.yaml --parallel --hard
+    # salt-cloud --map /vagrant/shared/misc/salt-cloud/map1.yaml --parallel --destroy --assume-yes
+
+
 Misc
 ''''
 
@@ -143,7 +182,7 @@ Setup ZSH profile:
 
 ::
 
-    # salt-call --local -l debug state.sls git,tools,zsh test=False; usermod -s /bin/zsh root
+    # salt-call -l debug state.sls git,tools,zsh test=False; usermod -s /bin/zsh root
 
 
 Additional resources

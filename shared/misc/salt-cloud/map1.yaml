@@ -1,0 +1,159 @@
+linode_1024_centos_fra:
+  - master1:
+      make_master: True
+  - minion1
+  - minion2
+  - minion3
+  - minion4
+  - minion5
+  - minion6
+  - minion7
+  - minion8
+  - minion9
+  - minion10
+  - minion11
+  - minion12
+  - minion13
+  - minion14
+  - minion15
+  - minion16
+  - minion17
+  - minion18
+  - minion19
+  - minion20
+  - minion21
+  - minion22
+  - minion23
+  - minion24
+  - minion25
+  - minion26
+  - minion27
+  - minion28
+  - minion29
+  - minion30
+  #  - minion31
+  #  - minion32
+  #  - minion33
+  #  - minion34
+  #  - minion35
+  #  - minion36
+  #  - minion37
+  #  - minion38
+  #  - minion39
+  #  - minion40
+  #  - minion41
+  #  - minion42
+  #  - minion43
+  #  - minion44
+  #  - minion45
+  #  - minion46
+  #  - minion47
+  #  - minion48
+  #  - minion49
+  #  - minion50
+  #  - minion51
+  #  - minion52
+  #  - minion53
+  #  - minion54
+  #  - minion55
+  #  - minion56
+  #  - minion57
+  #  - minion58
+  #  - minion59
+  #  - minion60
+  #  - minion61
+  #  - minion62
+  #  - minion63
+  #  - minion64
+  #  - minion65
+  #  - minion66
+  #  - minion67
+  #  - minion68
+  #  - minion69
+  #  - minion70
+  #  - minion71
+  #  - minion72
+  #  - minion73
+  #  - minion74
+  #  - minion75
+  #  - minion76
+  #  - minion77
+  #  - minion78
+  #  - minion79
+  #  - minion80
+  #  - minion81
+  #  - minion82
+  #  - minion83
+  #  - minion84
+  #  - minion85
+  #  - minion86
+  #  - minion87
+  #  - minion88
+  #  - minion89
+  #  - minion90
+  #  - minion91
+  #  - minion92
+  #  - minion93
+  #  - minion94
+  #  - minion95
+  #  - minion96
+  #  - minion97
+  #  - minion98
+  #  - minion99
+  #  - minion100
+  #linode_1024_debian_fra:
+  #  - minion100
+  #  - minion101
+  #  - minion102
+  #  - minion103
+  #  - minion104
+  #  - minion105
+  #  - minion106
+  #  - minion107
+  #  - minion108
+  #  - minion109
+  #  - minion110
+  #  - minion111
+  #  - minion112
+  #  - minion113
+  #  - minion114
+  #  - minion115
+  #  - minion116
+  #  - minion117
+  #  - minion118
+  #  - minion119
+  #  - minion120
+  #linode_1024_opensuse_fra:
+  #  - minion121
+  #  - minion122
+  #  - minion123
+  #  - minion124
+  #  - minion125
+  #  - minion126
+  #  - minion127
+  #  - minion128
+  #  - minion129
+  #  - minion130
+  #linode_1024_fedora_fra:
+  #  - minion131
+  #  - minion132
+  #  - minion133
+  #  - minion134
+  #  - minion135
+  #  - minion136
+  #  - minion137
+  #  - minion138
+  #  - minion139
+  #  - minion140
+  #linode_1024_arch_fra:
+  #- minion141
+  #  - minion142
+  #  - minion143
+  #  - minion144
+  #  - minion145
+  #  - minion146
+  #  - minion147
+  #  - minion148
+  #  - minion149
+  #  - minion150
+  #  - minion151
