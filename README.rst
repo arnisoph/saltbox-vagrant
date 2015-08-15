@@ -162,11 +162,11 @@ List available VM images of the provider defined in provider config linode01:
 
     # salt-cloud --list-images=linode01
 
-Deploy a VM using the profile linode_1024_centos_fra and name it minion1:
+Deploy a VM using the profile linode_2048_centos_fra and name it minion1:
 
 ::
 
-    # salt-cloud -l debug -p linode_1024_centos_fra minion1
+    # salt-cloud -l debug -p linode_2048_centos_fra minion1
 
 Deploy even more VMs:
 

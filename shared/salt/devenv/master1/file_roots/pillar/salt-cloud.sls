@@ -38,57 +38,47 @@ cloud:
       password: s4ltcl0udl1n123
       ssh_key_file: /vagrant/shared/misc/salt-cloud/test-vagrant-salt-talk
   profiles:
-    linode_1024_centos_fra:
+    linode_2048_centos_fra:
       provider: linode01
-      size: Linode 1024
+      size: Linode 2048
       image: CentOS 7
       location: Frankfurt, DE
-      script_args: -M -K stable
+      script_args: -M -K -Z -P -D git v2014.7
       private_ip: true
-      minion:
-        master: li1371-29.members.linode.com
-    linode_1024_debian_fra:
+#      minion:
+#        master: li1371-29.members.linode.com
+    linode_2048_debian_fra:
       provider: linode01
-      size: Linode 1024
+      size: Linode 2048
       image: Debian 7
       location: Frankfurt, DE
-      script_args: -M -K stable
+      script_args: -M -K -Z -P -D git v2014.7
       private_ip: true
-      minion:
-        master: li1371-29.members.linode.com
-    linode_1024_gentoo_fra:
+    linode_2048_gentoo_fra:
       provider: linode01
-      size: Linode 1024
+      size: Linode 2048
       image: Gentoo 2014.12
       location: frankfurt
-      script_args: -M -K stable
+      script_args: -M -K -Z -P -D git v2014.7
       private_ip: true
-      minion:
-        master: li1371-29.members.linode.com
-    linode_1024_fedora_fra:
+    linode_2048_fedora_fra:
       provider: linode01
-      size: Linode 1024
+      size: Linode 2048
       image: Fedora 22
       location: frankfurt
-      script_args: -M -K stable
+      script_args: -M -K -Z -P -D git v2014.7
       private_ip: true
-      minion:
-        master: li1371-29.members.linode.com
-    linode_1024_arch_fra:
+    linode_2048_arch_fra:
       provider: linode01
-      size: Linode 1024
+      size: Linode 2048
       image: Arch Linux 2015.02
       location: Frankfurt, DE
-      script_args: -M -K stable
+      script_args: -M -K -Z -P -D git v2014.7
       private_ip: true
-      minion:
-        master: li1371-29.members.linode.com
-    linode_1024_opensuse_fra:
+    linode_2048_opensuse_fra:
       provider: linode01
-      size: Linode 1024
+      size: Linode 2048
       image: openSUSE 13.2
       location: frankfurt
-      script_args: -M -K stable
+      script_args: -M -K -Z -P -D git v2014.7
       private_ip: true
-      minion:
-        master: li1371-29.members.linode.com
