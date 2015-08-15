@@ -1,0 +1,81 @@
+---
+defaults:
+  domain: saltbox.local.inovex.de
+  base_box: chef/centos-7.1
+  osfam: rhel
+  synced_folders:
+    # Common folders
+    - src: assets/scripts/provision
+      dst: /vagrant/scripts
+    - src: ../shared/misc
+      dst: /vagrant/shared/misc
+
+    # Salt related folders
+    - src: ../shared/salt/devenv
+      dst: /vagrant/shared/salt/devenv
+    #- src: ../../github/salt
+    #  dst: /vagrant/src/salt
+    - src: ../shared/salt/assets/salt-modules/_modules
+      dst: /vagrant/salt/_modules
+    - src: ../shared/salt/assets/salt-modules/_states
+      dst: /vagrant/salt/_states
+
+    # Puppet related folders
+    #- src: ../shared/puppet
+    #  dst: /vagrant/shared/puppet
+    #- src: ../../../<project>/puppet/modules
+    #  dst: /vagrant/shared/puppet_modules_ext
+    #- src: ../../../<project>/puppet-data
+    #  dst: /vagrant/shared/puppet_hiera_ext
+
+    # Rex related folders
+    #- src: ../../github/rex
+    #  dst: /vagrant/src/rex
+  provision:
+    - name: basic
+    - name: saltstack_install_bootstrap
+      env:
+        params: '-Z,-P,stable'
+    - name: saltstack_formulas
+      formulas:
+        - name: saltbox
+          base_dir: ../shared/salt/assets/saltstack-saltbox-formula
+        - name: java
+          base_dir: ../shared/salt/assets/saltstack-java-formula
+        - name: repos
+          base_dir: ../shared/salt/assets/saltstack-repos-formula
+        - name: time
+          base_dir: ../shared/salt/assets/saltstack-time-formula
+        - name: git
+          base_dir: ../shared/salt/assets/saltstack-git-formula
+        - name: vim
+          base_dir: ../shared/salt/assets/saltstack-vim-formula
+        - name: tools
+          base_dir: ../shared/salt/assets/saltstack-tools-formula
+        - name: sysctl
+          base_dir: ../shared/salt/assets/saltstack-sysctl-formula
+        - name: tomcat
+          base_dir: ../shared/salt/assets/saltstack-tomcat-formula
+        - name: users
+          base_dir: ../shared/salt/assets/saltstack-users-formula
+        - name: salt
+          base_dir: ../shared/salt/assets/saltstack-salt-formula
+        - name: vim
+          base_dir: ../shared/salt/assets/saltstack-vim-formula
+        - name: bash
+          base_dir: ../shared/salt/assets/saltstack-bash-formula
+        - name: zsh
+          base_dir: ../shared/salt/assets/saltstack-zsh-formula
+        - name: postfix
+          base_dir: ../shared/salt/assets/saltstack-postfix-formula
+        - name: httpd
+          base_dir: ../shared/salt/assets/saltstack-httpd-formula
+        - name: repositorio
+          base_dir: ../shared/salt/assets/saltstack-repositorio-formula
+    - name: saltstack_config
+    - name: saltstack_services
+nodes:
+  master1:
+    ip: 10.10.13.100
+    cpus: 4
+    memory: 2048
