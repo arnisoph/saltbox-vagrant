@@ -70,6 +70,8 @@ defaults:
           base_dir: ../shared/salt/assets/saltstack-postfix-formula
         - name: httpd
           base_dir: ../shared/salt/assets/saltstack-httpd-formula
+        - name: saltbox
+          base_dir: ../shared/salt/assets/saltstack-saltbox-formula
         - name: repositorio
           base_dir: ../shared/salt/assets/saltstack-repositorio-formula
     - name: saltstack_config
