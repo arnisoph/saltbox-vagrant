@@ -203,4 +203,4 @@ Please see https://github.com/bechtoldt/vagrant-devenv for some more bits of inf
 TODO
 ----
 
-* chapters: security/ workflows (pkg install / service restart), lb.., failhard
+see https://github.com/bechtoldt/saltbox-vagrant/issues
