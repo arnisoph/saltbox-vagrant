@@ -95,47 +95,34 @@ java:
             source: salt://misc/jdk-8u40-linux-x64.tar.gz
             version: jdk1.8.0_40
 
+role: webserver
 
 sysctl:
-  params:
-    - name: vm.swappiness
-      value: 1
+  lookup:
+   params:
+      - name: vm.swappiness
+        value: 1
 
 tools:
-  manage:
-    bzip: {}
-    colordiff: {}
-    curl: {}
-    ed: {}
-    gzip: {}
-    haveged: {}
-    htop: {}
-    less: {}
-    logrotate: {}
-    rsync: {}
-    screen: {}
-    sed: {}
-    tar: {}
-    traceroute: {}
-    tree: {}
-    tzdata: {}
-    unzip: {}
-    wget: {}
-    zip: {}
-    moreutils: {}
-
-
-
-zsh:
   lookup:
-    sls_include:
-      - users
-    ohmyzsh:
-      setup: True
-      src: https://github.com/robbyrussell/oh-my-zsh
-  config:
-    manage:
-      users:
-        root: {}
-
-role: webserver
+    tools:
+      bzip: {}
+      colordiff: {}
+      curl: {}
+      ed: {}
+      gzip: {}
+      haveged: {}
+      htop: {}
+      less: {}
+      logrotate: {}
+      rsync: {}
+      screen: {}
+      sed: {}
+      tar: {}
+      traceroute: {}
+      tree: {}
+      tzdata: {}
+      unzip: {}
+      wget: {}
+      zip: {}
+      moreutils: {}
