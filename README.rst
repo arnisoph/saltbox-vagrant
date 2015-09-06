@@ -165,6 +165,9 @@ Executing some execution modules:
 Salt Cloud VM Deployment
 ''''''''''''''''''''''''
 
+This doesn't work out of the box since you need provider API credentials to deploy *cloud* VMs.
+
+
 Prepare the system for Salt Cloud:
 
 ::
