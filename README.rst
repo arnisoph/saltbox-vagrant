@@ -2,6 +2,26 @@
 saltbox-vagrant
 ===============
 
+.. image:: https://img.shields.io/badge/donate-flattr-red.svg
+    :alt: Donate via flattr
+    :target: https://flattr.com/profile/bechtoldt
+
+.. image:: https://img.shields.io/gratipay/bechtoldt.svg
+    :alt: Donate via Gratipay
+    :target: https://www.gratipay.com/bechtoldt/
+
+.. image:: https://img.shields.io/badge/license-Apache--2.0-blue.svg
+    :alt: Apache-2.0-licensed
+    :target: https://github.com/bechtoldt/saltbox-vagrant/blob/master/LICENSE
+
+.. image:: https://img.shields.io/badge/chat-gitter-brightgreen.svg
+    :alt: Join Gitter Chat
+    :target: https://gitter.im/bechtoldt/saltbox-vagrant?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+
+.. image:: https://img.shields.io/badge/chat-%23salt%20@%20Freenode-brightgreen.svg
+    :alt: Join Internet Relay Chat
+    :target: http://webchat.freenode.net/?channels=%23salt&uio=d4
+
 A Vagrant VM that uses SaltStack to setup a SaltStack sandbox for SaltStack demonstration
 
 .. contents::
