@@ -1,7 +1,7 @@
 ---
 defaults:
   domain: saltbox.local.inovex.de
-  base_box: chef/centos-7.1
+  base_box: puppetlabs/centos-7.0-64-nocm
   osfam: rhel
   synced_folders:
     # Common folders
@@ -19,23 +19,11 @@ defaults:
       dst: /vagrant/salt/_modules
     - src: ../shared/salt/assets/salt-modules/_states
       dst: /vagrant/salt/_states
-
-    # Puppet related folders
-    #- src: ../shared/puppet
-    #  dst: /vagrant/shared/puppet
-    #- src: ../../../<project>/puppet/modules
-    #  dst: /vagrant/shared/puppet_modules_ext
-    #- src: ../../../<project>/puppet-data
-    #  dst: /vagrant/shared/puppet_hiera_ext
-
-    # Rex related folders
-    #- src: ../../github/rex
-    #  dst: /vagrant/src/rex
   provision:
     - name: basic
     - name: saltstack_install_bootstrap
       env:
-        params: '-Z,-P,-M,git,96c4fb61b84db15caa3e99c8730a226681ddb411'
+        params: '-Z,-P,-M,git,v2015.8.0rc5'
     - name: saltstack_formulas
       formulas:
         - name: saltbox

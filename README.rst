@@ -21,23 +21,36 @@ You need:
 
 Workflows
 ---------
-Basics
-''''''
+Preparing Vagrant VM(s)
+'''''''''''''''''''''''
 
 Preparing the setup:
 
 ::
 
-    # git clone <GIT_URI> --recursive
+    # git clone --recursive <GIT_URI> saltbox
+    # cd saltbox/
+    # cp nodes.yaml.dist nodes.yaml
     # cd vagrant/
     # vagrant up
     # vagrant ssh
     # sudo -i
+
+
+Installing Salt manually
+''''''''''''''''''''''''
+
+Hint: This is not needed when you haven't disabled ``saltstack_install_bootstrap`` in the file ``nodes.yaml``.
+
+::
+
     # /vagrant/scripts/custom/saltstack_install_bootstrap/A_base.sh
     # /vagrant/scripts/custom/saltstack_config/A_base.sh
     # /vagrant/scripts/custom/saltstack_services/A_base.sh
 
-Alternative bootstrap arguments: ``-M -K -g https://github.com/saltstack/salt.git git 2014.7``
+
+Basics
+''''''
 
 Check Salt is installed:
 
@@ -75,10 +88,13 @@ Read the docs:
     # salt-call sys.doc pillar.get
 
 
+Hint: To continue with full awesomeness, setup ZSH shell (see ``Misc`` section).
+
+
 Simple Apache httpd Management
 ''''''''''''''''''''''''''''''
 
-Installing Apache httpd, deploying a httpd.conf template and restart the service afterwards.
+Installing Apache httpd, deploying a httpd.conf template and restart the service afterwards:
 
 ::
 
@@ -87,14 +103,15 @@ Installing Apache httpd, deploying a httpd.conf template and restart the service
     # echo unwantend content >> /etc/httpd/conf/httpd.conf
     # salt-call -l debug state.sls saltbox.simple_apache_httpd
 
-The same as before but now making use of the Salt pillar system
+Doing the same as before but now making use of the Salt pillar system:
 
 ::
 
-    # less /srv/salt/pillar/share/common/init.sls
+    # less /srv/salt/pillar/share/common.sls
+    # salt-call -l debug pillar.get httpd
     # salt-call -l debug pillar.get httpd --out=json
     # diff -u /srv/salt/states/saltbox/simple_apache_httpd/init.sls /srv/salt/states/saltbox/simple_apache_httpd_dynamic/init.sls
-    # less /srv/salt/contrib/states/saltbox/files/httpd_dynamic.conf
+    # tail /srv/salt/contrib/states/saltbox/files/httpd_dynamic.conf
     # salt-call -l debug state.sls saltbox.simple_apache_httpd_dynamic test=True
     # curl -vs http://10.10.13.100/
 
@@ -102,38 +119,47 @@ The same as before but now making use of the Salt pillar system
 Working with the master
 '''''''''''''''''''''''
 
+Use the master for job & file management:
+
+::
+
+    # ed -s /etc/salt/minion <<< $',s/file_client: local/master: 127.0.0.1/\nw'
+    # service salt-minion restart
+
+(``file_client: local`` needs to be replaced by ``master: 127.0.0.1``)
+
+
 Minion key management:
 
 ::
 
     # salt-key
-    # salt-key -D
-    # service salt-minion restart
-    # cat /etc/salt/autosign.conf
+    # head /etc/salt/autosign.conf
     # salt-key -h
 
-Targeting:
+Targeting (specifying minions to execute commands):
 
 ::
 
-    # salt 'master1.saltbox.local.inovex.de' test.version
-    # salt 'master1*' test.version
-    # salt -C 'G@os_family:RedHat' test.version
-    # salt -C 'G@os_family:RedHat and I@role:webserver' test.version
-    # salt -C '*' test.version
+    # salt -v 'master1.saltbox.local.inovex.de' test.version
+    # salt -v 'master1*' test.version
+    # salt -v -C 'G@os_family:RedHat' test.version
+    # salt -v -C 'G@os_family:RedHat and I@role:webserver' test.version
+    # salt -v -C '*' pillar.get role
+    # salt -v -C '*' test.version
 
 Executing some execution modules:
 
 ::
 
-    # salt 'master1*' state.sls saltbox.simple_apache_httpd_dynamic test=True
-    # salt 'master1*' pkg.install openssl refresh=True
-    # salt 'master1*' pkg.list_upgrades
-    # salt 'master1*' service.get_all
-    # salt 'master1*' service.restart httpd
-    # salt 'master1*' disk.usage
-    # salt 'master1*' git.clone /tmp/github.clone git://github.com/saltstack/salt.git; ls -l /tmp/github.clone/
-    # salt 'master1*' grains.get os_family
+    # salt -v 'master1*' state.sls saltbox.simple_apache_httpd_dynamic test=True
+    # salt -v 'master1*' pkg.install openssl refresh=True
+    # salt -v 'master1*' pkg.list_upgrades
+    # salt -v 'master1*' service.get_all
+    # salt -v 'master1*' service.restart httpd
+    # salt -v 'master1*' disk.usage
+    # salt -v 'master1*' git.clone /tmp/github.clone git://github.com/saltstack/salt.git; ls -al /tmp/github.clone/
+    # salt -v 'master1*' grains.get os_family
 
 
 Salt Cloud VM Deployment
@@ -189,6 +215,8 @@ Setup ZSH profile:
 ::
 
     # salt-call -l debug state.sls git,tools,zsh test=False; usermod -s /bin/zsh root
+    # exit
+    $ sudo -i
 
 
 Additional resources
@@ -198,6 +226,8 @@ See `Configuration Management with SaltStack <https://www.inovex.de/fileadmin/fi
 slides that have some useful information.
 
 Please see https://github.com/bechtoldt/vagrant-devenv for some more bits of information about the vagrant VM.
+
+Alternative bootstrap arguments: ``-M -K -g https://github.com/saltstack/salt.git git 2014.7``
 
 
 TODO
