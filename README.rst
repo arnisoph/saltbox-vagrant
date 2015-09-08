@@ -230,14 +230,6 @@ Destroy them all:
     # salt-cloud --map /vagrant/shared/misc/salt-cloud/map1.yaml --parallel --destroy --assume-yes
 
 
-Updating Vagrant VM(s)/ Git submodules
-''''''''''''''''''''''''''''''''''''''
-
-::
-
-    # cd saltbox/
-    # git pull
-    # git submodule update --init --recursive .
 
 
 Misc
@@ -250,6 +242,15 @@ Setup ZSH profile:
     # salt-call -l debug state.sls git,tools,zsh test=False; usermod -s /bin/zsh root
     # exit
     $ sudo -i
+
+
+Updating Vagrant VM(s)/ Git submodules:
+
+::
+
+    # cd saltbox/
+    # git pull
+    # git submodule update --init --recursive .
 
 
 Additional resources
