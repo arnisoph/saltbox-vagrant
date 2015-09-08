@@ -34,7 +34,7 @@ Requirements
 
 You need:
 
-* basic vagrant knowledge (RFTM skills are sufficient)
+* basic vagrant knowledge (RTFM skills are sufficient)
 * Vagrant >= 1.6.5 (``$ vagrant -v``)
 * VirtualBox >= 3
 
