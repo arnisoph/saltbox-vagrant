@@ -244,7 +244,7 @@ Setup ZSH profile:
     $ sudo -i
 
 
-Updating Vagrant VM(s)/ Git submodules:
+Update Vagrant VM(s)/ Git submodules:
 
 ::
 
