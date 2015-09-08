@@ -48,7 +48,7 @@ Preparing the setup:
 
 ::
 
-    # git clone --recursive <GIT_URI> saltbox
+    # git clone --recursive https://github.com/bechtoldt/saltbox-vagrant.git saltbox
     # cd saltbox/
     # cp nodes.yaml.dist nodes.yaml
     # cd vagrant/
