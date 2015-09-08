@@ -52,8 +52,8 @@ Preparing the setup:
     # cd saltbox/
     # cp nodes.yaml.dist nodes.yaml
     # cd vagrant/
-    # vagrant up
-    # vagrant ssh
+    # vagrant up master1
+    # vagrant ssh master1
     # sudo -i
 
 
@@ -228,6 +228,16 @@ Destroy them all:
 ::
 
     # salt-cloud --map /vagrant/shared/misc/salt-cloud/map1.yaml --parallel --destroy --assume-yes
+
+
+Updating Vagrant VM(s)/ Git submodules
+''''''''''''''''''''''''''''''''''''''
+
+::
+
+    # cd saltbox/
+    # git pull
+    # git submodule update --init --recursive .
 
 
 Misc
