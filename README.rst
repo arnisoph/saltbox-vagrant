@@ -54,7 +54,7 @@ Preparing the setup:
     # cd vagrant/
     # vagrant up master1
     # vagrant ssh master1
-    # sudo -i
+    $ sudo -i
 
 Hint: To continue with full awesomeness, setup ZSH shell (see ``Misc`` section).
 
