@@ -163,6 +163,7 @@ System User/Group management
 ''''''''''''''''''''''''''''
 
 ::
+
     # salt-call user.list_users
     # salt-call user.delete operator
     # salt-call user.info operator
