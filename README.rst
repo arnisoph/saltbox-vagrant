@@ -56,6 +56,8 @@ Preparing the setup:
     # vagrant ssh master1
     # sudo -i
 
+Hint: To continue with full awesomeness, setup ZSH shell (see ``Misc`` section).
+
 
 Installing Salt manually
 ''''''''''''''''''''''''
@@ -86,18 +88,9 @@ Check Salt minion/ master configuration:
     # less /etc/salt/master
     # tree -l /srv/salt/
 
-See list of grains:
 
-::
-
-    # salt-call grains.items
-
-See specific pillar data:
-
-::
-
-    # salt-call pillar.get users
-    # salt-call pillar.get users --out=json
+Module Documentation
+''''''''''''''''''''
 
 Read the docs:
 
@@ -108,11 +101,100 @@ Read the docs:
     # salt-call sys.doc pillar.get
 
 
-Hint: To continue with full awesomeness, setup ZSH shell (see ``Misc`` section).
+Job Managment
+'''''''''''''
+
+Add recurring jobs (like cronjobs) ad-hoc using the minion job scheduler:
+
+::
+
+    # salt-call schedule.add job1 function='test.ping' seconds=10
+    # salt-call schedule.add apply_states function='state.highstate' minutes=30
+    # salt-call schedule.list
+
+Manage arbitrary cron jobs:
+
+::
+
+    # salt-call cron.ls root
 
 
-Simple Apache httpd Management
-''''''''''''''''''''''''''''''
+Software Package Management
+'''''''''''''''''''''''''''
+
+::
+
+    # salt-call pkg.install rubygems
+    # salt-call gem.install lolcat
+    # salt-call pkg.list_upgrades | lolcat
+
+
+Grains data
+'''''''''''
+
+See list of grains:
+
+::
+
+    # salt-call grains.items
+    # salt-call grains.get os
+    # salt-call grains.get os --out=json
+    # salt-call grains.get os --out=yaml
+
+Get minion OS statistics (requires a Salt master):
+
+::
+
+    # salt '*' grains.get os --out=yaml | cut -f2 -d' ' | sort | uniq -c | sort -nr
+
+
+Pillar data
+'''''''''''
+
+See specific pillar data:
+
+::
+
+    # salt-call pillar.get users
+    # salt-call pillar.get users --out=json
+
+
+System User/Group management
+''''''''''''''''''''''''''''
+
+::
+    # salt-call user.list_users
+    # salt-call user.delete operator
+    # salt-call user.info operator
+    # salt-call user.add tomcat
+    # salt-call user.info tomcat
+
+
+Installing and Running a Webserver
+'''''''''''''''''''''''''''''''''''
+
+::
+
+    # salt-call pkg.install httpd
+    # salt-call pkg.version httpd
+    # salt-call apache.modules
+    # salt-call service.restart httpd
+    # salt-call cmd.run 'curl -vs http://127.0.0.1'
+    # salt-call cmd.run 'echo That is a test page > /var/www/html/index.html'
+    # salt-call cmd.run 'curl -vs http://127.0.0.1'
+
+
+Retreiving remote files
+'''''''''''''''''''''''
+
+::
+
+    # salt-call cp.get_url http://slashdot.org/ /tmp/index.html
+    # salt-call cmd.run 'head -20 /tmp/index.html'
+
+
+Applying Salt States for software & configuration mgmt
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 Installing Apache httpd, deploying a httpd.conf template and restart the service afterwards:
 
@@ -134,6 +216,14 @@ Doing the same as before but now making use of the Salt pillar system:
     # tail /srv/salt/contrib/states/saltbox/files/httpd_dynamic.conf
     # salt-call -l debug state.sls saltbox.simple_apache_httpd_dynamic test=True
     # curl -vs http://10.10.13.100/
+
+Feel free to play around with Salt by modifying the files that you've found in ``/srv/salt/`` for hacking.
+
+
+Adding custom Salt States
+'''''''''''''''''''''''''
+
+To develop and test self-written Salt pillar or state files simply store them in ``/srv/salt/pillar/shared/`` (Pillar) and ``/srv/salt/states/`` (States). The default minion/master configuration looks for pillar (``pillar_roots``) and state (``file_roots``) files within these folders.
 
 
 Working with the master
@@ -180,6 +270,18 @@ Executing some execution modules:
     # salt -v 'master1*' disk.usage
     # salt -v 'master1*' git.clone /tmp/github.clone git://github.com/saltstack/salt.git; ls -al /tmp/github.clone/
     # salt -v 'master1*' grains.get os_family
+
+Targeting minions based on hostnames, grains and more:
+
+::
+
+    # salt -C 'E@minion[13-37]+' test.ping
+    # salt -L 'minion42,master1,minion69' test.ping
+    # salt -C 'G@os:CentOS' test.ping
+    # salt -C 'G@os:Debian' test.ping
+    # salt -C 'G@os:Arch' test.ping
+    # salt -C 'S@139.162.209.0/24 and P@os:CentOS' cmd.run 'traceroute arnoldbechtoldt.com'
+    # salt -C 'S@139.162.209.0/24 and P@os:CentOS' network.traceroute arnoldbechtoldt.com
 
 
 Salt Cloud VM Deployment
@@ -230,8 +332,6 @@ Destroy them all:
     # salt-cloud --map /vagrant/shared/misc/salt-cloud/map1.yaml --parallel --destroy --assume-yes
 
 
-
-
 Misc
 ''''
 
@@ -239,12 +339,12 @@ Setup ZSH profile:
 
 ::
 
-    # salt-call -l debug state.sls git,tools,zsh test=False; usermod -s /bin/zsh root
+    # salt-call -l debug state.sls git,tools,zsh test=False
     # exit
     $ sudo -i
 
 
-Update Vagrant VM(s)/ Git submodules:
+Update saltbox-vagrant VM(s)/ Git submodules:
 
 ::
 

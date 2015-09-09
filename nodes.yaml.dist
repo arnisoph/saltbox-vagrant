@@ -23,7 +23,7 @@ defaults:
     - name: basic
     - name: saltstack_install_bootstrap
       env:
-        params: '-Z,-P,-M,git,v2015.8.0rc5'
+        params: '-Z,-P,-M,git,2015.8' #TODO: change to git tag v2015.8.X
     - name: saltstack_formulas
       formulas:
         - name: saltbox
