@@ -181,7 +181,7 @@ Installing and Running a Webserver
     # salt-call apache.modules
     # salt-call service.restart httpd
     # salt-call cmd.run 'curl -vs http://127.0.0.1'
-    # salt-call cmd.run 'echo That is a test page > /var/www/html/index.html'
+    # salt-call cmd.run 'echo This is a test page > /var/www/html/index.html'
     # salt-call cmd.run 'curl -vs http://127.0.0.1'
 
 
