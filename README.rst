@@ -360,8 +360,8 @@ Update saltbox-vagrant VM(s)/ Git submodules:
 Additional resources
 --------------------
 
-See `Configuration Management with SaltStack <https://www.inovex.de/fileadmin/files/Vortraege/configuration-management-with-saltstack-arnold-bechtold-slac-2014.pdf>`_ for
-slides that have some useful information.
+* `Configuration Management with SaltStack <https://www.inovex.de/fileadmin/files/Vortraege/configuration-management-with-saltstack-arnold-bechtold-slac-2014.pdf>`_
+* `Saltbox: A SaltStack sandbox environment <https://arnoldbechtoldt.com/blog/saltbox-a-saltstack-sandbox-environment>`_
 
 Please see https://github.com/bechtoldt/vagrant-devenv for some more bits of information about the vagrant VM.
 
