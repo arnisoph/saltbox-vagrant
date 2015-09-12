@@ -167,8 +167,8 @@ System User/Group management
     # salt-call user.list_users
     # salt-call user.delete operator
     # salt-call user.info operator
-    # salt-call user.add tomcat
-    # salt-call user.info tomcat
+    # salt-call user.add operator
+    # salt-call user.info operator
 
 
 Installing and Running a Webserver
@@ -210,12 +210,13 @@ Doing the same as before but now making use of the Salt pillar system:
 
 ::
 
-    # less /srv/salt/pillar/share/common.sls
+    # less /srv/salt/pillar/shared/common.sls
     # salt-call -l debug pillar.get httpd
     # salt-call -l debug pillar.get httpd --out=json
     # diff -u /srv/salt/states/saltbox/simple_apache_httpd/init.sls /srv/salt/states/saltbox/simple_apache_httpd_dynamic/init.sls
     # tail /srv/salt/contrib/states/saltbox/files/httpd_dynamic.conf
     # salt-call -l debug state.sls saltbox.simple_apache_httpd_dynamic test=True
+    # salt-call -l debug state.sls saltbox.simple_apache_httpd_dynamic
     # curl -vs http://10.10.13.100/
 
 Feel free to play around with Salt by modifying the files that you've found in ``/srv/salt/`` for hacking.
@@ -269,10 +270,10 @@ Executing some execution modules:
     # salt -v 'master1*' service.get_all
     # salt -v 'master1*' service.restart httpd
     # salt -v 'master1*' disk.usage
-    # salt -v 'master1*' git.clone /tmp/github.clone git://github.com/saltstack/salt.git; ls -al /tmp/github.clone/
+    # salt -v 'master1*' git.clone /tmp/github.clone git://github.com/bechtoldt/dotfiles.git; ls -al /tmp/github.clone/
     # salt -v 'master1*' grains.get os_family
 
-Targeting minions based on hostnames, grains and more:
+Targeting minions based on hostnames, grains and more (requires some more minions):
 
 ::
 
@@ -281,8 +282,8 @@ Targeting minions based on hostnames, grains and more:
     # salt -C 'G@os:CentOS' test.ping
     # salt -C 'G@os:Debian' test.ping
     # salt -C 'G@os:Arch' test.ping
-    # salt -C 'S@139.162.209.0/24 and P@os:CentOS' cmd.run 'traceroute arnoldbechtoldt.com'
-    # salt -C 'S@139.162.209.0/24 and P@os:CentOS' network.traceroute arnoldbechtoldt.com
+    # salt -C 'S@139.162.209.0/24 and P@os:CentOS' test.ping
+    # salt -C 'S@139.162.209.0/24 and P@os:CentOS' test.ping
 
 
 Salt Cloud VM Deployment
