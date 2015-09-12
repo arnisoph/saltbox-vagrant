@@ -58,6 +58,8 @@ Preparing the setup:
 
 Hint: To continue with full awesomeness, setup ZSH shell (see ``Misc`` section).
 
+salt-call -l debug state.sls git,tools,zsh test=False
+
 
 Installing Salt manually
 ''''''''''''''''''''''''
@@ -108,7 +110,7 @@ Add recurring jobs (like cronjobs) ad-hoc using the minion job scheduler:
 
 ::
 
-    # salt-call schedule.add job1 function='test.ping' seconds=10
+    # salt-call schedule.add test_ping function='test.ping' seconds=10
     # salt-call schedule.add apply_states function='state.highstate' minutes=30
     # salt-call schedule.list
 
@@ -210,14 +212,14 @@ Doing the same as before but now making use of the Salt pillar system:
 
 ::
 
-    # less /srv/salt/pillar/shared/common.sls
+    # head /srv/salt/pillar/shared/common.sls
     # salt-call -l debug pillar.get httpd
     # salt-call -l debug pillar.get httpd --out=json
     # diff -u /srv/salt/states/saltbox/simple_apache_httpd/init.sls /srv/salt/states/saltbox/simple_apache_httpd_dynamic/init.sls
     # tail /srv/salt/contrib/states/saltbox/files/httpd_dynamic.conf
     # salt-call -l debug state.sls saltbox.simple_apache_httpd_dynamic test=True
     # salt-call -l debug state.sls saltbox.simple_apache_httpd_dynamic
-    # curl -vs http://10.10.13.100/
+    # curl -vs http://127.0.0.1/
 
 Feel free to play around with Salt by modifying the files that you've found in ``/srv/salt/`` for hacking.
 
@@ -364,6 +366,9 @@ slides that have some useful information.
 Please see https://github.com/bechtoldt/vagrant-devenv for some more bits of information about the vagrant VM.
 
 Alternative bootstrap arguments: ``-M -K -g https://github.com/saltstack/salt.git git 2014.7``
+
+.. image:: https://asciinema.org/a/26271.png
+       :target: https://asciinema.org/a/26271
 
 
 TODO
