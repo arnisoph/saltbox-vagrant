@@ -106,23 +106,37 @@ sysctl:
 tools:
   lookup:
     tools:
-      bzip: {}
-      colordiff: {}
-      curl: {}
-      ed: {}
-      gzip: {}
-      haveged: {}
-      htop: {}
-      less: {}
-      logrotate: {}
-      rsync: {}
-      screen: {}
-      sed: {}
-      tar: {}
-      traceroute: {}
-      tree: {}
-      tzdata: {}
-      unzip: {}
-      wget: {}
-      zip: {}
-      moreutils: {}
+      bzip:
+        ensure: installed
+      colordiff:
+        ensure: installed
+      curl:
+        ensure: installed
+      ed:
+        ensure: installed
+      gzip:
+        ensure: installed
+      htop:
+        ensure: installed
+      less:
+        ensure: installed
+      moreutils:
+        ensure: installed
+      rsync:
+        ensure: installed
+      sed:
+        ensure: installed
+      tar:
+        ensure: installed
+      traceroute:
+        ensure: installed
+      tree:
+        ensure: installed
+      tzdata:
+        ensure: installed
+      unzip:
+        ensure: installed
+      wget:
+        ensure: installed
+      zip:
+        ensure: installed
