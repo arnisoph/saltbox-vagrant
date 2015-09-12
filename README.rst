@@ -58,8 +58,6 @@ Preparing the setup:
 
 Hint: To continue with full awesomeness, setup ZSH shell (see ``Misc`` section).
 
-salt-call -l debug state.sls git,tools,zsh test=False
-
 
 Installing Salt manually
 ''''''''''''''''''''''''
