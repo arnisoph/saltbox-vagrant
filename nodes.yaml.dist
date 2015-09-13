@@ -5,8 +5,6 @@ defaults:
   osfam: rhel
   synced_folders:
     # Common folders
-    - src: assets/scripts/provision
-      dst: /vagrant/scripts
     - src: ../shared/misc
       dst: /vagrant/shared/misc
 

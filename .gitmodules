@@ -55,3 +55,6 @@
 [submodule "shared/salt/assets/saltstack-zsh-formula"]
 	path = shared/salt/assets/saltstack-zsh-formula
 	url = https://github.com/bechtoldt/saltstack-zsh-formula.git
+[submodule "vagrant-assets"]
+	path = vagrant-assets
+	url = https://github.com/bechtoldt/vagrant-assets
