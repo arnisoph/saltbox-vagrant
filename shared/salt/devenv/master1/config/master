@@ -1,0 +1,12 @@
+autosign_file: /etc/salt/autosign.conf
+
+file_roots:
+  base:
+    - /srv/salt/states
+    - /srv/salt/contrib/states
+    - /vagrant/shared
+
+pillar_roots:
+  base:
+    - /srv/salt/pillar/examples
+    - /srv/salt/pillar/shared

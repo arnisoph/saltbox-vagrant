@@ -1,6 +1,6 @@
 base:
   '*':
     - common
-    - salt-cloud
+    - salt
     - zsh
     #- private

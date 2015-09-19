@@ -67,3 +67,18 @@ nodes:
     ip: 10.10.13.100
     cpus: 4
     memory: 2048
+#  minion1:
+#    ip: 10.10.13.101
+#    memory: 256
+#  minion2:
+#    ip: 10.10.13.102
+#    memory: 256
+#  minion3:
+#    ip: 10.10.13.103
+#    memory: 256
+#  minion4:
+#    ip: 10.10.13.104
+#    memory: 256
+#  minion5:
+#    ip: 10.10.13.105
+#    memory: 256

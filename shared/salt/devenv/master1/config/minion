@@ -1,0 +1,8 @@
+master: 10.10.13.100
+
+module_dirs:
+  - /srv/salt/_modules/common
+  - /srv/salt/_modules/formulas
+
+states_dirs:
+  - /srv/salt/_states/common

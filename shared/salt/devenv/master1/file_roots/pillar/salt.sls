@@ -1,20 +1,11 @@
 salt:
   lookup:
     minion:
+      pkgs: False
       config:
         minion:
           config:
-            master: 127.0.0.1
-            file_roots:
-              base:
-                - /srv/salt/states
-                - /srv/salt/contrib/states
-                - /vagrant/shared
-
-            pillar_roots:
-              base:
-                - /srv/salt/pillar/examples
-                - /srv/salt/pillar/shared
+            master: 10.10.13.100
 
             module_dirs:
               - /srv/salt/_modules/common
