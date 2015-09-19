@@ -108,14 +108,15 @@ Add recurring jobs (like cronjobs) ad-hoc using the minion job scheduler:
 
 ::
 
-    # salt-call schedule.add test_ping function='test.ping' seconds=10
-    # salt-call schedule.add apply_states function='state.highstate' minutes=30
+    # salt-call schedule.add test_ping function='test.ping' seconds=15
+    # salt-call schedule.add apply_states function='disk.usage' minutes=30
     # salt-call schedule.list
 
 Manage arbitrary cron jobs:
 
 ::
 
+    # crontab -e
     # salt-call cron.ls root
 
 
@@ -276,14 +277,14 @@ Targeting minions based on hostnames, grains and more (requires some more minion
     # salt -C 'S@139.162.209.0/24 and P@os:CentOS' test.ping
 
 
-Multi-Node and Salt Reactor (Advanced Topic)
-''''''''''''''''''''''''''''''''''''''''''''
+Multi-Node Setup and Salt Reactor (Advanced Topic)
+''''''''''''''''''''''''''''''''''''''''''''''''''
 
 ::
 
     $ cd saltbox/
 
-Enable minion[1-5] in ``nodes.yaml``:
+Enable minion1 in ``nodes.yaml``:
 
 ::
 
@@ -294,17 +295,25 @@ Configure Salt Master (incl. Reactor) based on Pillar data:
 ::
 
     $ cd vagrant/
+    $ vagrant up master1
     $ vagrant ssh master1
     $ sudo -i
     # salt-call state.highstate
+    # less /etc/salt/master
+    # tree -l /srv/salt/contrib/reactor/salt/files
+    # less /srv/salt/states/saltbox/reactor_apache_httpd/init.sls
+    # salt-call test.ping
     # tail -f /tmp/salt.reactor.log
 
-Start an **additional** terminal and start minion VMs:
+Start an **additional** terminal and start new VMs acting as arbitrary minions:
 
 ::
 
     $ cd saltbox/vagrant
     $ vagrant up minion1
+    $ vagrant ssh minion1
+    $ sudo -i
+    # service salt-minion restart
 
 Now wait for log entries in ``/tmp/salt.reactor.log``.
 
@@ -369,7 +378,10 @@ Setup ZSH profile:
     $ sudo -i
 
 
-Update saltbox-vagrant VM(s)/ Git submodules:
+Saltbox/Vagrant Maintenance
+---------------------------
+
+Update saltbox-vagrant VM(s)/ Git submodules as follows:
 
 ::
 
