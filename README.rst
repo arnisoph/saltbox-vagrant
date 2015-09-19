@@ -281,7 +281,7 @@ Multi-Node Setup and Salt Reactor (Advanced Topic)
 ''''''''''''''''''''''''''''''''''''''''''''''''''
 
 The following steps are also explained in a `blog article on my blog
-<https://arnoldbechtoldt.com/blog/saltstack-event-driven-infrastructure-with-salt-reactor>`.
+<https://arnoldbechtoldt.com/blog/saltstack-event-driven-infrastructure-with-salt-reactor>`_.
 
 ::
 
