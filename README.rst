@@ -367,9 +367,3 @@ Alternative bootstrap arguments: ``-M -K -g https://github.com/saltstack/salt.gi
 
 .. image:: https://asciinema.org/a/26271.png
        :target: https://asciinema.org/a/26271
-
-
-TODO
-----
-
-see https://github.com/bechtoldt/saltbox-vagrant/issues
