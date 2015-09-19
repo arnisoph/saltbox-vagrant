@@ -48,12 +48,12 @@ Preparing the setup:
 
 ::
 
-    # git clone --recursive https://github.com/bechtoldt/saltbox-vagrant.git saltbox
-    # cd saltbox/
-    # cp nodes.yaml.dist nodes.yaml
-    # cd vagrant/
-    # vagrant up master1
-    # vagrant ssh master1
+    $ git clone --recursive https://github.com/bechtoldt/saltbox-vagrant.git saltbox
+    $ cd saltbox/
+    $ cp nodes.yaml.dist nodes.yaml
+    $ cd vagrant/
+    $ vagrant up master1
+    $ vagrant ssh master1
     $ sudo -i
 
 Hint: To continue with full awesomeness, setup ZSH shell (see ``Misc`` section).
@@ -231,16 +231,6 @@ To develop and test self-written Salt pillar or state files simply store them in
 Working with the master
 '''''''''''''''''''''''
 
-Use the master for job & file management:
-
-::
-
-    # ed -s /etc/salt/minion <<< $',s/file_client: local/master: 127.0.0.1/\nw'
-    # service salt-minion restart
-
-(``file_client: local`` needs to be replaced by ``master: 127.0.0.1``)
-
-
 Minion key management:
 
 ::
@@ -284,6 +274,37 @@ Targeting minions based on hostnames, grains and more (requires some more minion
     # salt -C 'G@os:Arch' test.ping
     # salt -C 'S@139.162.209.0/24 and P@os:CentOS' test.ping
     # salt -C 'S@139.162.209.0/24 and P@os:CentOS' test.ping
+
+Seting up multi-node and Salt reactor (Advanced Topic):
+
+::
+
+    $ cd saltbox/
+
+Enable minion[1-5] in ``nodes.yaml``:
+
+::
+
+    $ vim nodes.yaml
+
+Configure Salt Master (incl. Reactor) based on Pillar data:
+
+::
+
+    $ cd vagrant/
+    $ vagrant ssh master1
+    $ sudo -i
+    # salt-call state.highstate
+    # tail -f /tmp/salt.reactor.log
+
+Start an **additional** terminal and start minion VMs:
+
+::
+
+    $ cd saltbox/vagrant
+    $ vagrant up minion1
+
+Now wait for log entries in ``/tmp/salt.reactor.log``.
 
 
 Salt Cloud VM Deployment

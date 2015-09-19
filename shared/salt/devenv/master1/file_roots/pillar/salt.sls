@@ -6,6 +6,7 @@ salt:
         minion:
           config:
             master: 10.10.13.100
+            log_level: debug
 
             module_dirs:
               - /srv/salt/_modules/common
@@ -13,6 +14,31 @@ salt:
 
             states_dirs:
               - /srv/salt/_states/common
+    master:
+      pkgs: False
+      config:
+        master:
+          config:
+            autosign_file: /etc/salt/autosign.conf
+
+            file_roots:
+              base:
+                - /srv/salt/states
+                - /srv/salt/contrib/states
+                - /vagrant/shared
+
+            pillar_roots:
+              base:
+                - /srv/salt/pillar/examples
+                - /srv/salt/pillar/shared
+
+            reactor:
+              - 'salt/minion/*/start':
+                - /srv/salt/contrib/reactor/salt/files/basic.sls
+              - 'salt/job/*/ret/*':
+                - /srv/salt/contrib/reactor/salt/files/job_ret.sls
+              - 'frontend/loadbalancer/pool/update':
+                - /srv/salt/contrib/reactor/salt/files/lb_pool_update.sls
     cloud:
       config:
         cloud:
