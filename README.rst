@@ -275,7 +275,9 @@ Targeting minions based on hostnames, grains and more (requires some more minion
     # salt -C 'S@139.162.209.0/24 and P@os:CentOS' test.ping
     # salt -C 'S@139.162.209.0/24 and P@os:CentOS' test.ping
 
-Seting up multi-node and Salt reactor (Advanced Topic):
+
+Multi-Node and Salt Reactor (Advanced Topic)
+''''''''''''''''''''''''''''''''''''''''''''
 
 ::
 
