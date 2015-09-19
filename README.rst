@@ -280,6 +280,9 @@ Targeting minions based on hostnames, grains and more (requires some more minion
 Multi-Node Setup and Salt Reactor (Advanced Topic)
 ''''''''''''''''''''''''''''''''''''''''''''''''''
 
+The following steps are also explained in a `blog article on my blog
+<https://arnoldbechtoldt.com/blog/saltstack-event-driven-infrastructure-with-salt-reactor>`.
+
 ::
 
     $ cd saltbox/
