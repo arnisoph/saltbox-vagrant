@@ -337,6 +337,18 @@ Prepare the system for Salt Cloud:
     # With optional states:
     # salt-call -ldebug state.sls salt.cloud,repos,git,tools,zsh,users,vim
 
+Add ``- private`` in ``/srv/salt/pillar/shared/top.sls`` to include the Pillar file ``/srv/salt/pillar/shared/private.sls`` with the following contents:
+
+::
+
+    cloud:
+      providers:
+        linode01:
+          apikey: YourLinodeAPIKey
+
+
+Now Linode API access should be possible.
+
 
 List available DC locations of the provider defined in provider config linode01:
 
@@ -354,7 +366,7 @@ Deploy a VM using the profile linode_2048_centos_fra and name it minion1:
 
 ::
 
-    # salt-cloud -l debug -p linode_2048_centos_fra minion1
+    # salt-cloud -l debug -p linode_2048_centos_fra vm1
 
 Deploy even more VMs:
 

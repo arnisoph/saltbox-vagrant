@@ -1,159 +1,159 @@
 linode_2048_centos_fra:
   - master1:
       make_master: True
-  - minion1
-  - minion2
-  - minion3
-  - minion4
-  - minion5
-  - minion6
-  - minion7
-  - minion8
-  - minion9
-  - minion10
-  - minion11
-  - minion12
-  - minion13
-  - minion14
-  - minion15
-  - minion16
-  - minion17
-  - minion18
-  - minion19
-  - minion20
-  - minion21
-  - minion22
-  - minion23
-  - minion24
-  - minion25
-  - minion26
-  - minion27
-  - minion28
-  - minion29
-  - minion30
-  #  - minion31
-  #  - minion32
-  #  - minion33
-  #  - minion34
-  #  - minion35
-  #  - minion36
-  #  - minion37
-  #  - minion38
-  #  - minion39
-  #  - minion40
-  #  - minion41
-  #  - minion42
-  #  - minion43
-  #  - minion44
-  #  - minion45
-  #  - minion46
-  #  - minion47
-  #  - minion48
-  #  - minion49
-  #  - minion50
-  #  - minion51
-  #  - minion52
-  #  - minion53
-  #  - minion54
-  #  - minion55
-  #  - minion56
-  #  - minion57
-  #  - minion58
-  #  - minion59
-  #  - minion60
-  #  - minion61
-  #  - minion62
-  #  - minion63
-  #  - minion64
-  #  - minion65
-  #  - minion66
-  #  - minion67
-  #  - minion68
-  #  - minion69
-  #  - minion70
-  #  - minion71
-  #  - minion72
-  #  - minion73
-  #  - minion74
-  #  - minion75
-  #  - minion76
-  #  - minion77
-  #  - minion78
-  #  - minion79
-  #  - minion80
-  #  - minion81
-  #  - minion82
-  #  - minion83
-  #  - minion84
-  #  - minion85
-  #  - minion86
-  #  - minion87
-  #  - minion88
-  #  - minion89
-  #  - minion90
-  #  - minion91
-  #  - minion92
-  #  - minion93
-  #  - minion94
-  #  - minion95
-  #  - minion96
-  #  - minion97
-  #  - minion98
-  #  - minion99
-  #  - minion100
+  - vm1
+  - vm2
+  - vm3
+  - vm4
+  - vm5
+  - vm6
+  - vm7
+  - vm8
+  - vm9
+  - vm10
+  - vm11
+  - vm12
+  - vm13
+  - vm14
+  - vm15
+  - vm16
+  - vm17
+  - vm18
+  - vm19
+  - vm20
+  - vm21
+  - vm22
+  - vm23
+  - vm24
+  - vm25
+  - vm26
+  - vm27
+  - vm28
+  - vm29
+  - vm30
+  #  - vm31
+  #  - vm32
+  #  - vm33
+  #  - vm34
+  #  - vm35
+  #  - vm36
+  #  - vm37
+  #  - vm38
+  #  - vm39
+  #  - vm40
+  #  - vm41
+  #  - vm42
+  #  - vm43
+  #  - vm44
+  #  - vm45
+  #  - vm46
+  #  - vm47
+  #  - vm48
+  #  - vm49
+  #  - vm50
+  #  - vm51
+  #  - vm52
+  #  - vm53
+  #  - vm54
+  #  - vm55
+  #  - vm56
+  #  - vm57
+  #  - vm58
+  #  - vm59
+  #  - vm60
+  #  - vm61
+  #  - vm62
+  #  - vm63
+  #  - vm64
+  #  - vm65
+  #  - vm66
+  #  - vm67
+  #  - vm68
+  #  - vm69
+  #  - vm70
+  #  - vm71
+  #  - vm72
+  #  - vm73
+  #  - vm74
+  #  - vm75
+  #  - vm76
+  #  - vm77
+  #  - vm78
+  #  - vm79
+  #  - vm80
+  #  - vm81
+  #  - vm82
+  #  - vm83
+  #  - vm84
+  #  - vm85
+  #  - vm86
+  #  - vm87
+  #  - vm88
+  #  - vm89
+  #  - vm90
+  #  - vm91
+  #  - vm92
+  #  - vm93
+  #  - vm94
+  #  - vm95
+  #  - vm96
+  #  - vm97
+  #  - vm98
+  #  - vm99
+  #  - vm100
   #linode_2048_debian_fra:
-  #  - minion100
-  #  - minion101
-  #  - minion102
-  #  - minion103
-  #  - minion104
-  #  - minion105
-  #  - minion106
-  #  - minion107
-  #  - minion108
-  #  - minion109
-  #  - minion110
-  #  - minion111
-  #  - minion112
-  #  - minion113
-  #  - minion114
-  #  - minion115
-  #  - minion116
-  #  - minion117
-  #  - minion118
-  #  - minion119
-  #  - minion120
+  #  - vm100
+  #  - vm101
+  #  - vm102
+  #  - vm103
+  #  - vm104
+  #  - vm105
+  #  - vm106
+  #  - vm107
+  #  - vm108
+  #  - vm109
+  #  - vm110
+  #  - vm111
+  #  - vm112
+  #  - vm113
+  #  - vm114
+  #  - vm115
+  #  - vm116
+  #  - vm117
+  #  - vm118
+  #  - vm119
+  #  - vm120
   #linode_2048_opensuse_fra:
-  #  - minion121
-  #  - minion122
-  #  - minion123
-  #  - minion124
-  #  - minion125
-  #  - minion126
-  #  - minion127
-  #  - minion128
-  #  - minion129
-  #  - minion130
+  #  - vm121
+  #  - vm122
+  #  - vm123
+  #  - vm124
+  #  - vm125
+  #  - vm126
+  #  - vm127
+  #  - vm128
+  #  - vm129
+  #  - vm130
   #linode_2048_fedora_fra:
-  #  - minion131
-  #  - minion132
-  #  - minion133
-  #  - minion134
-  #  - minion135
-  #  - minion136
-  #  - minion137
-  #  - minion138
-  #  - minion139
-  #  - minion140
+  #  - vm131
+  #  - vm132
+  #  - vm133
+  #  - vm134
+  #  - vm135
+  #  - vm136
+  #  - vm137
+  #  - vm138
+  #  - vm139
+  #  - vm140
   #linode_2048_arch_fra:
-  #- minion141
-  #  - minion142
-  #  - minion143
-  #  - minion144
-  #  - minion145
-  #  - minion146
-  #  - minion147
-  #  - minion148
-  #  - minion149
-  #  - minion150
-  #  - minion151
+  #- vm141
+  #  - vm142
+  #  - vm143
+  #  - vm144
+  #  - vm145
+  #  - vm146
+  #  - vm147
+  #  - vm148
+  #  - vm149
+  #  - vm150
+  #  - vm151
