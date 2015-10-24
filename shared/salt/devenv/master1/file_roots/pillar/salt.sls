@@ -43,7 +43,7 @@ salt:
       config:
         cloud:
           config:
-            pool_size: 15
+            pool_size: 10
             enable_hard_maps: true
 cloud:
   update_cachedir: True
