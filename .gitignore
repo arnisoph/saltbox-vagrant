@@ -60,3 +60,4 @@ test/nodes.yaml
 nodes.yaml
 
 shared/salt/devenv/master1/file_roots/pillar/private.sls
+shared/salt/devenv/master1/file_roots/pillar/orchestration/private.sls

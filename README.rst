@@ -381,6 +381,32 @@ Destroy them all:
     # salt-cloud --map /vagrant/shared/misc/salt-cloud/map1.yaml --parallel --destroy --assume-yes
 
 
+SaltStack - Orchestration & Application Deployment
+''''''''''''''''''''''''''''''''''''''''''''''''''
+
+Prepare steps:
+
+* prepare saltbox vm (see chapter above *Salt Cloud VM Deployment*)
+* add orchestration.private to top.sls
+
+::
+
+    # salt-cloud --map /vagrant/shared/misc/salt-cloud/map_orchestration.yaml --parallel --hard
+    # rsync -vaL --delete /srv/salt/ 139.162.155.67:/srv/salt/
+    # rm /etc/salt/master; ln -s /srv/salt/contrib/states/saltbox/files/orchestration/master /etc/salt/
+    # salt-master -l info OR service salt-master restart
+    # salt -v '*' saltutil.sync_all
+    # salt -v '*' state.sls saltbox.orchestration.bootstrap
+
+    # salt -v '*' state.sls repos,git,tools,zsh,users,vim
+    # salt -v -C 'db*' state.sls saltbox.orchestration.redis
+    # salt -v -C 'mw*' state.sls saltbox.orchestration.node,saltbox.orchestration.haste
+    # salt -v -C 'fe*' state.sls saltbox.orchestration.haproxy
+
+    # salt -v -C 'mw*' cmd.run 'forever stopall' /srv/haste-server/
+    # salt -v '*' saltutil.refresh_pillar
+
+
 Misc
 ''''
 

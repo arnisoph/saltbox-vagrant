@@ -9,11 +9,10 @@ salt:
             log_level: debug
 
             module_dirs:
-              - /srv/salt/_modules/common
-              - /srv/salt/_modules/formulas
+              - /srv/salt/_modules
 
             states_dirs:
-              - /srv/salt/_states/common
+              - /srv/salt/_states
     master:
       pkgs: False
       config:
@@ -23,6 +22,7 @@ salt:
 
             file_roots:
               base:
+                - /srv/salt
                 - /srv/salt/states
                 - /srv/salt/contrib/states
                 - /vagrant/shared
@@ -43,7 +43,7 @@ salt:
       config:
         cloud:
           config:
-            pool_size: 10
+            pool_size: 8
             enable_hard_maps: true
 cloud:
   update_cachedir: True
@@ -55,12 +55,19 @@ cloud:
       password: s4ltcl0udl1n123
       ssh_key_file: /vagrant/shared/misc/salt-cloud/test-vagrant-salt-talk
   profiles:
+    linode_2048_centos_fra_master:
+      provider: linode01
+      size: Linode 2048
+      image: CentOS 7
+      location: Frankfurt, DE
+      script_args: -Z -P git v2015.8.0
+      private_ip: true
     linode_2048_centos_fra:
       provider: linode01
       size: Linode 2048
       image: CentOS 7
       location: Frankfurt, DE
-      script_args: -M -K -Z -P -D git 2015.5
+      script_args: -Z -P -A 139.162.148.130 git v2015.8.0
       private_ip: true
 #      minion:
 #        master: li1371-29.members.linode.com
@@ -69,33 +76,33 @@ cloud:
       size: Linode 2048
       image: Debian 7
       location: Frankfurt, DE
-      script_args: -M -K -Z -P -D git 2015.5
+      script_args: -Z -P -A 139.162.148.130 git v2015.8.0
       private_ip: true
     linode_2048_gentoo_fra:
       provider: linode01
       size: Linode 2048
       image: Gentoo 2014.12
       location: frankfurt
-      script_args: -M -K -Z -P -D git 2015.5
+      script_args: -Z -P -A 139.162.148.130 git v2015.8.0
       private_ip: true
     linode_2048_fedora_fra:
       provider: linode01
       size: Linode 2048
       image: Fedora 22
       location: frankfurt
-      script_args: -M -K -Z -P -D git 2015.5
+      script_args: -Z -P -A 139.162.148.130 git v2015.8.0
       private_ip: true
     linode_2048_arch_fra:
       provider: linode01
       size: Linode 2048
       image: Arch Linux 2015.02
       location: Frankfurt, DE
-      script_args: -M -K -Z -P -D git 2015.5
+      script_args: -Z -P -A 139.162.148.130 git v2015.8.0
       private_ip: true
     linode_2048_opensuse_fra:
       provider: linode01
       size: Linode 2048
       image: openSUSE 13.2
       location: frankfurt
-      script_args: -M -K -Z -P -D git 2015.5
+      script_args: -Z -P -A 139.162.148.130 git v2015.8.0
       private_ip: true
