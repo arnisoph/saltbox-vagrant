@@ -12,7 +12,6 @@ haste_server:
     - serialize
     - name: /srv/haste-server/config.js
     - formatter: json
-    #- dataset_pillar: haste:lookup:server:config
     - dataset:
         host: {{ salt['grains.get']('ip4_interfaces:eth0')[1] }}
         port: 7777
@@ -28,7 +27,6 @@ haste_server:
          type: phonetic
         storage:
          type: redis
-         {# host: {  salt['publish.publish']('db*', 'grains.get', 'ip4_interfaces')['db1']['eth0'][1] } #}
          host: {{ salt['mine.get']('db*', 'network_ip_addrs')['db1'][1] }}
          port: 6379
          db: 2
@@ -60,16 +58,6 @@ haste_server_started:
     - name: custom/minion/haste_server_started
     - watch:
       - cmd: haste_server_service
-#  module:
-#    - wait
-#    - name: smtp.send_msg
-#    - kwargs:
-#      subject: 'Hooray, a new app backend ({{ salt['grains.get']('id') }})!'
-#      recipient: 'mail@arnoldbechtoldt.com'
-#      message: 'Haste Server started on {{ salt['grains.get']('id') }} ({{ salt['grains.get']('fqdn') }})'
-#      profile: smtp_credentials
-#    - watch:
-#      - cmd: haste_server_service
   module:
     - wait
     - name: http.query
