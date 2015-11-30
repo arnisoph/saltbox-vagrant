@@ -1,10 +1,8 @@
-base:
-  'minion* or master*':
-    - match: compound
-    - common
-    - private
-    - salt
-    - zsh
-
-  'master1*':
-    - salt.master
+#base:
+#  'minion* or master*':
+#    - match: compound
+#    - salt
+#    - zsh
+#
+#  'master1*':
+#    - salt.master

@@ -1,7 +1,8 @@
 ---
 defaults:
   domain: saltbox.local.inovex.de
-  base_box: puppetlabs/centos-7.0-64-nocm
+  #base_box: puppetlabs/centos-7.0-64-nocm
+  base_box: bechtoldt/centos-7.0-salt-2015.8.0
   osfam: rhel
   synced_folders:
     # Common folders

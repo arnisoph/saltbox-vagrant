@@ -108,8 +108,8 @@ tools:
     tools:
       bzip:
         ensure: installed
-      colordiff:
-        ensure: installed
+#      colordiff:
+#        ensure: installed
       curl:
         ensure: installed
       ed:
